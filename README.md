@@ -1,6 +1,4 @@
-# sam-app
-
-This is a sample template for sam-app
+# AWS SAM Reporter PRTG Lambda Service using DotNet and C#
 
 ## Requirements
 
