@@ -11,17 +11,17 @@ Globals:
 
 Resources:
 
-    HelloWorldFunction:
+    PRTGFunction:
         Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
         Properties:
-            CodeUri: ./artifacts/HelloWorld.zip
-            Handler: HelloWorld::HelloWorld.Function::FunctionHandler
+            CodeUri: ./artifacts/PRTG.zip
+            Handler: PRTG::PRTG.Function::FunctionHandler
             Runtime: dotnetcore2.0
             Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
                 Variables:
                     PARAM1: VALUE
             Events:
-                HelloWorld:
+                PRTG:
                     Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
                     Properties:
                         Path: /hello
@@ -29,14 +29,14 @@ Resources:
 
 Outputs:
 
-    HelloWorldApi:
+    PRTGApi:
       Description: "API Gateway endpoint URL for Prod stage for Hello World function"
       Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
 
-    HelloWorldFunction:
+    PRTGFunction:
       Description: "Hello World Lambda Function ARN"
-      Value: !GetAtt HelloWorldFunction.Arn
+      Value: !GetAtt PRTGFunction.Arn
 
-    HelloWorldFunctionIamRole:
+    PRTGFunctionIamRole:
       Description: "Implicit IAM Role created for Hello World function"
-      Value: !GetAtt HelloWorldFunctionRole.Arn
+      Value: !GetAtt PRTGFunctionRole.Arn

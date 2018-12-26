@@ -15,7 +15,7 @@ var sourceDir = Directory("./src");
 var solutions = GetFiles("./**/*.sln");
 var projects = new []
 {
-    sourceDir.Path + "/HelloWorld/HelloWorld.csproj",
+    sourceDir.Path + "/PRTG/PRTG.csproj",
 };
 
 // BUILD OUTPUT DIRECTORIES
