@@ -34,7 +34,7 @@ sam local start-api
 ```yaml
 ...
 Events:
-    HelloWorldFunction:
+    PRTGFunction:
         Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
         Properties:
             Path: /prtg
@@ -50,10 +50,10 @@ AWS Lambda C# runtime requires a flat folder with all dependencies including the
 
 ```yaml
 ...
-    HelloWorldFunction:
+    PRTGFunction:
         Type: AWS::Serverless::Function
         Properties:
-            CodeUri: artifacts/HelloWorld.zip            
+            CodeUri: artifacts/PRTG.zip            
             ...
 ```
 
@@ -95,7 +95,7 @@ aws cloudformation describe-stacks \
 For testing our code, we use XUnit and you can use `dotnet test` to run tests defined under `test/`
 
 ```bash
-dotnet test test/HelloWorld.Test
+dotnet test test/PRTG.Test
 ```
 
 Alternatively, you can use Cake. It discovers and executes all the tests.
