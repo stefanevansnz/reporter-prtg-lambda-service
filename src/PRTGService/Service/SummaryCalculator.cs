@@ -20,14 +20,17 @@ namespace PRTGService.Service
             }
         }
 
-        private string ExtractValue(string input) {
+        public float ExtractFloatValue(string input) {
+            input = input.Replace("< ", "");
+            //Console.WriteLine("input value to extract is " + input);
+
             Regex regex = new Regex(@"(.*)\s");
+
             Match match = regex.Match(input);
-            if (match.Success) {
-                return match.Groups[1].Value;
-            } else {
-                return null;
-            }
+
+            var value = match.Groups[1].Value;
+            //Console.WriteLine("value to convert to float is " + value);
+            return float.Parse(value);
         }
 
         private void AddToSummary(StatsSummaryHolder holder, string key, float value) {
@@ -91,16 +94,18 @@ namespace PRTGService.Service
 
                 foreach (XElement itemField in itemFieldList)
                 {
-                    var key = ExtractKey(itemField.Name + " " + itemField.Attribute("channel"));
-                    if (key != null) {
+                    //Console.WriteLine("* itemField.Name " + itemField.Name + " value " + itemField.Value);
+
+                    string key = ExtractKey(itemField.Name + " " + itemField.Attribute("channel"));
+                    string rawValue = itemField.Value;
+                    if (key != null && rawValue != null && rawValue != "") {
                         //Console.WriteLine("Key found is " + key);
+                        //Console.WriteLine("rawValue " + rawValue);
+
                         // get value
-                        var value = ExtractValue(itemField.Value);
-                        //  Console.WriteLine("Value is " + value);
-                        if (value != null) {
-                            //stats._stats.Add(key, float.Parse(value));
-                            AddToSummary(stats, key, float.Parse(value));
-                        }
+                        float floatValue = ExtractFloatValue(rawValue);
+                        //Console.WriteLine("floatValue is " + floatValue);
+                        AddToSummary(stats, key, floatValue);
                     }
 
 

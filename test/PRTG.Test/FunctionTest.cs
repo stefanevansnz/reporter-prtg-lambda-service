@@ -29,7 +29,7 @@ namespace PRTG.Tests
             return msg.Replace("\n","");
     }
 
-    [Fact]
+    //[Fact]
     public void TestPRTGFunctionHandler()
     {
             TestLambdaContext context;
@@ -38,11 +38,11 @@ namespace PRTG.Tests
 
             request = new APIGatewayProxyRequest();
             context = new TestLambdaContext();
-            string location = GetCallingIP().Result;
+            string cpu = "0.76";
             Dictionary<string, string> body = new Dictionary<string, string>
             {
-                { "message", "hello world" },
-                { "location", location },
+                { "message", "prtg world" },
+                { "cpu", cpu },
             };
 
             var ExpectedResponse = new APIGatewayProxyResponse
@@ -51,6 +51,11 @@ namespace PRTG.Tests
                 StatusCode = 200,
                 Headers = new Dictionary<string, string> { { "Content-Type", "application/json" } }
             };
+
+            request.QueryStringParameters = new Dictionary<string, string>();
+
+            request.QueryStringParameters.Add("sdate", "2018-11-09-00-00-00");
+            request.QueryStringParameters.Add("edate", "2018-11-29-00-00-00");
 
             var function = new Function();
             response = function.FunctionHandler(request, context);

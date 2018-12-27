@@ -16,7 +16,7 @@ Resources:
         Properties:
             CodeUri: ./artifacts/PRTG.zip
             Handler: PRTG::PRTG.Function::FunctionHandler
-            Runtime: dotnetcore2.0
+            Runtime: dotnetcore2.1
             Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
                 Variables:
                     PARAM1: VALUE
@@ -24,7 +24,7 @@ Resources:
                 PRTG:
                     Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
                     Properties:
-                        Path: /hello
+                        Path: /prtg
                         Method: get
 
 Outputs:
