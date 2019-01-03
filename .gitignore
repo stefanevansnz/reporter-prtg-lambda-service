@@ -408,3 +408,9 @@ tools/**
 
 # End of https://www.gitignore.io/api/macos,linux,windows,sublimetext,dotsettings,visualstudio,visualstudiocode
 deployment/policy.json
+tools/Cake/Cake.exe.config
+tools/Cake/Cake.xml
+tools/Cake/Cake.Common.xml
+tools/Cake/Cake.Core.xml
+tools/Cake/Cake.NuGet.xml
+tools/Cake/LICENSE
