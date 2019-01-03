@@ -145,3 +145,6 @@ Here are a few ideas that you can use to get more acquainted as to how this over
 Next, you can use the following resources to know more about beyond hello world samples and how others structure their Serverless applications:
 
 * [AWS Serverless Application Repository](https://aws.amazon.com/serverless/serverlessrepo/)
+
+More notes
+http://maxhorstmann.net/blog/2017/05/22/ci-dotnetcore-lambda/
