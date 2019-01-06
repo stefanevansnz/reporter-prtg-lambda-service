@@ -147,4 +147,7 @@ Next, you can use the following resources to know more about beyond hello world 
 * [AWS Serverless Application Repository](https://aws.amazon.com/serverless/serverlessrepo/)
 
 More notes
+
+https://aws.amazon.com/blogs/compute/developing-net-core-aws-lambda-functions/
+
 http://maxhorstmann.net/blog/2017/05/22/ci-dotnetcore-lambda/
