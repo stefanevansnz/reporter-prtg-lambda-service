@@ -2,12 +2,15 @@ version: 0.2
 phases:
   install:
     commands:
+      - dotnet restore
+      - dotnet build
       - dotnet publish -c Release
-      - sam package --template-file template.yaml --output-template debugging-example.yaml --s3-bucket codepipeline-ap-southeast-2-786338495378
-#      - aws cloudformation package --template-file template.yaml --s3-bucket codepipeline-ap-southeast-2-786338495378 --output-template-file outputSamTemplate.yaml
+      #- sam package --template-file template.yaml --output-template debugging-example.yaml --s3-bucket codepipeline-ap-southeast-2-786338495378
+      - aws cloudformation package --template-file template.yaml --s3-bucket codepipeline-ap-southeast-2-786338495378 --output-template-file outputSamTemplate.yaml
 artifacts:
   type: zip
   files:
+    - src/PRTG/bin/Release/netcoreapp2.1/*
     - template.yaml
     - outputSamTemplate.yaml
 # https://aws.amazon.com/blogs/compute/developing-net-core-aws-lambda-functions/
