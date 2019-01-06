@@ -10,7 +10,7 @@ phases:
 artifacts:
   type: zip
   files:
-    - src/PRTG/bin/Release/netcoreapp2.1/*
+    - src/src/PRTG/bin/Release/netcoreapp2.1/publish/*
     - template.yaml
     - outputSamTemplate.yaml
 # https://aws.amazon.com/blogs/compute/developing-net-core-aws-lambda-functions/
