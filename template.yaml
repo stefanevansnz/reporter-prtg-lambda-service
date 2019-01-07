@@ -32,11 +32,3 @@ Outputs:
     PRTGApi:
       Description: "API Gateway endpoint URL for Prod stage for Hello World function"
       Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
-
-    PRTGFunction:
-      Description: "Hello World Lambda Function ARN"
-      Value: !GetAtt PRTGFunction.Arn
-
-    PRTGFunctionIamRole:
-      Description: "Implicit IAM Role created for Hello World function"
-      Value: !GetAtt PRTGFunctionRole.Arn
