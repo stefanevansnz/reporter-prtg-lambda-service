@@ -4,7 +4,8 @@ phases:
     commands:
       - dotnet publish -c Release
       - aws cloudformation package --template-file template.yaml --s3-bucket reporterbotdeploymentbucket --output-template-file outputSamTemplate.yaml
-artifacts:
+      - aws cloudformation deploy --template-file outputSamTemplate.yaml --stack-name my-new-stack --capabilities CAPABILITY_IAM
+  artifacts:
   type: zip
   files:
     - src/PRTG/bin/Release/netcoreapp2.1/publish/*
