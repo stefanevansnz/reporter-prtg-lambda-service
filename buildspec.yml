@@ -5,7 +5,7 @@ phases:
       - dotnet publish -c Release
       - aws cloudformation package --template-file template.yaml --s3-bucket reporterbotdeploymentbucket --output-template-file outputSamTemplate.yaml
       - aws cloudformation deploy --template-file outputSamTemplate.yaml --stack-name sam-app --capabilities CAPABILITY_IAM --parameter-overrides MyParameterSample=MySampleValue
-      - aws cloudformation describe-stacks --stack-name sam-app --query 'Stacks[].Outputs'
+      #- aws cloudformation describe-stacks --stack-name sam-app --query 'Stacks[].Outputs'
 artifacts:
   type: zip
   files:
